@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inclusive_Sans } from "next/font/google";
+import UserNav from "./components/UserNav";
+
 import {
   ClerkProvider,
   SignInButton,
@@ -37,7 +39,7 @@ export default function RootLayout({
                 </SignedOut>
                 {/*-- if user is signed in --*/}
                 <SignedIn>
-                  <UserButton />
+                  <UserNav />
                 </SignedIn>
               </div>
             </nav>

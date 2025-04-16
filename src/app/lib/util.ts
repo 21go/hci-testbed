@@ -1,4 +1,4 @@
-export const  formatDateTime = (dateTimeString: string): string => {
+export const formatDateTime = (dateTimeString: string): string => {
   // Step 1: Parse the input string to a Date object
   const [datePart, timePart] = dateTimeString.split(", ");
   const [day, month, year] = datePart.split("/").map(Number);
@@ -11,5 +11,7 @@ export const  formatDateTime = (dateTimeString: string): string => {
   let ampm = date.getHours() >= 12 ? "pm" : "am";
 
   // Step 3: Return the formatted string with 12-hour time
-  return `${datePart}, ${hours12}:${minutes.toString().padStart(2, '0')}${ampm}`;
-}
+  return `${datePart}, ${hours12}:${minutes
+    .toString()
+    .padStart(2, "0")}${ampm}`;
+};
