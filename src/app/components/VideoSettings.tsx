@@ -1,31 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { UserPreferences } from "@/types/UserPreferences";
+import { UserPreferences } from "../../types/preferences/UserPreferences";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "../lib/firebase";
 import { useUser } from "@clerk/nextjs";
+import { defaultPreferences } from "@/types/preferences/dfault";
 
-const defaultPreferences: UserPreferences = {
-  audio: {
-    distortVoice: false,
-    safeContextOnly: false,
-    muteOnJoin: false,
-  },
-  video: {
-    blur: false,
-    onlyShowIn1on1: false,
-    verifiedRoomsOnly: false,
-    profilePictureVisibility: "group",
-  },
-  metadata: {
-    nameVisibility: "group",
-    pronounsVisibility: "private",
-    showInterestsIn1on1: true,
-  },
-};
-
-export default function VideoSettingsPage() {
+export default function VideoSettings() {
   const { user } = useUser();
   const [prefs, setPrefs] = useState<UserPreferences>(defaultPreferences);
 
@@ -68,10 +50,8 @@ export default function VideoSettingsPage() {
 
   return (
     <main className="p-8 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">🎛 Video & Privacy Settings</h1>
-
       <section className="mb-6">
-        <h2 className="text-xl font-semibold">🔈 Audio</h2>
+        <h2 className="text-xl font-semibold">Audio</h2>
         <label className="block py-2">
           <input
             type="checkbox"
@@ -105,7 +85,7 @@ export default function VideoSettingsPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-xl font-semibold">🎥 Video</h2>
+        <h2 className="text-xl font-semibold">Video</h2>
         <label className="block py-2">
           <input
             type="checkbox"
@@ -155,7 +135,7 @@ export default function VideoSettingsPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-xl font-semibold">👁️ Metadata</h2>
+        <h2 className="text-xl font-semibold">Metadata</h2>
         <label className="block py-2">
           Name Visibility:
           <select

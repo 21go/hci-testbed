@@ -1,5 +1,5 @@
 "use client";
-
+import VideoSettings from "./VideoSettings";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 const DotIcon = () => {
   return (
@@ -23,21 +23,14 @@ export default function UserNav() {
       </SignedOut>
       <SignedIn>
         <UserButton>
-          <UserButton.MenuItems>
-            <UserButton.Link
-              label="Video Settings"
-              labelIcon={<DotIcon />}
-              href="/video-settings"
-            />
-          </UserButton.MenuItems>
           <UserButton.UserProfilePage
             label="Video Settings"
             labelIcon={<DotIcon />}
-            url="help"
+            url="video-settings"
           >
             <div>
-              <h1>Help Page</h1>
-              <h3>This is the custom help page</h3>
+              <h1>Adjust Video Permissions</h1>
+              <VideoSettings></VideoSettings>
             </div>
           </UserButton.UserProfilePage>
         </UserButton>
