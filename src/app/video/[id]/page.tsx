@@ -39,8 +39,11 @@ export default function HomePage() {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-bold mb-4">{videoDoc.title}</h1>
-      <YouTubeCommentBox id={id} authorEmail={videoDoc.authorEmail} />
+      <YouTubeCommentBox
+        id={id}
+        authorEmail={videoDoc.authorEmail}
+        title={videoDoc.title}
+      />
     </main>
   );
 }
